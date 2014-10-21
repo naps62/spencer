@@ -15,6 +15,7 @@ gem 'money-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'bower-rails'
+gem 'angular-rails-templates'
 
 group :production, :staging do
   gem 'rails_12factor'
