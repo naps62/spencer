@@ -5,10 +5,15 @@ describe API::V1::ExpensesController, type: :controller do
 
   describe '#index' do
     before do
-      4.times { create :expense }
+      create :expense, description: 'Baked Potato w/ Cheese'
+      create :expense, description: 'Garlic Mashed Potatoes'
+      create :expense, description: 'Potatoes Au Gratin'
+      create :expense, description: 'Baked Brussel Sprouts'
 
       xhr :get, :index, format: :json, keywords: keywords
     end
+
+    subject(:results) { JSON.parse(response.body) }
 
     context 'when the search finds results' do
       let(:keywords) { 'baked' }
@@ -20,13 +25,13 @@ describe API::V1::ExpensesController, type: :controller do
         expect(results.size).to eq(2)
       end
       it 'includes "Baked Potato w/ Cheese"' do
-        expect(results.map { |result| result["name"] }).to include 'Baked Potato w/ Cheese'
+        expect(results.map { |result| result["description"] }).to include 'Baked Potato w/ Cheese'
       end
     end
 
     context "when the search doesn't find results" do
       let(:keywords) { 'foo' }
-      it 'should return no results' do
+      it 'should return no response' do
         expect(results).to be_empty
       end
     end
