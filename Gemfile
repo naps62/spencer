@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 
 gem 'rails', '4.0.4'
+gem 'active_model_serializers'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -23,6 +24,8 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'teaspoon'
+  gem 'phantomjs'
 end
 
 group :test do
