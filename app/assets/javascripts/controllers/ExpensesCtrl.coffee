@@ -1,19 +1,19 @@
 window.expenses = [
   {
     id: 1
-    name: 'Baked Potato w/ Cheese'
+    description: 'Baked Potato w/ Cheese'
   }
   {
     id: 2
-    name: 'Garlic Mashed Potatoes'
+    description: 'Garlic Mashed Potatoes'
   }
   {
     id: 3
-    name: 'Potatoes Au Gratin'
+    description: 'Potatoes Au Gratin'
   }
   {
     id: 4
-    name: 'Baked Brussel Sprouts'
+    description: 'Baked Brussel Sprouts'
   }
 ]
 
@@ -25,7 +25,7 @@ window.expenses = [
     $scope.expenses =
       if $routeParams.keywords
         keywords = $routeParams.keywords.toLowerCase()
-        window.expenses.filter (expense) -> expense.name.toLowerCase().indexOf(keywords) != -1
+        window.expenses.filter (expense) -> expense.description.toLowerCase().indexOf(keywords) != -1
       else
         []
 ]
