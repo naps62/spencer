@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 1.2'
 gem 'pry-rails'
 gem 'foreman'
+gem 'pg'
 
 gem 'money-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
@@ -18,19 +19,18 @@ gem 'angular-rails-templates'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'rspec-collection_matchers'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+end
+
+group :test do
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :production, :staging do
   gem 'rails_12factor'
   gem 'rails_stdout_logging'
   gem 'rails_serve_static_assets'
-  gem 'pg'
-end
-
-group :development, :test do
-  gem 'sqlite3'
 end
