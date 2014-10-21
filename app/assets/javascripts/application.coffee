@@ -1,6 +1,6 @@
 #= require jquery
 #= require angular/angular
-#= require angular-route
+#= require angular-route/angular-route
+#= require angular-rails-templates
 #= require app
-#= require router
 #= require_tree .
