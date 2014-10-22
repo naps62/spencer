@@ -17,8 +17,8 @@ window.expenses = [
   }
 ]
 
-@spencer.controller 'ExpensesCtrl', ['$scope', '$routeParams', '$location',
-  ($scope, $routeParams, $location) ->
+@spencer.controller 'ExpensesCtrl', ['$scope', '$routeParams', '$location', '$resource',
+  ($scope, $routeParams, $location, $resource) ->
     $scope.search = (keywords) ->
       $location.path('/').search('keywords', keywords)
 
