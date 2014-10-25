@@ -1,31 +1,8 @@
-window.expenses = [
-  {
-    id: 1
-    description: 'Baked Potato w/ Cheese'
-  }
-  {
-    id: 2
-    description: 'Garlic Mashed Potatoes'
-  }
-  {
-    id: 3
-    description: 'Potatoes Au Gratin'
-  }
-  {
-    id: 4
-    description: 'Baked Brussel Sprouts'
-  }
-]
+class ExpensesCtrl
+  constructor: ($scope, $http) ->
+    $http.get('/api/v1/expenses.json').success (data) ->
+      console.log data
+      $scope.expenses = data["expenses"]
 
-@spencer.controller 'ExpensesCtrl', ['$scope', '$routeParams', '$location', '$resource',
-  ($scope, $routeParams, $location, $resource) ->
-    $scope.search = (keywords) ->
-      $location.path('/').search('keywords', keywords)
-
-    $scope.expenses =
-      if $routeParams.keywords
-        keywords = $routeParams.keywords.toLowerCase()
-        window.expenses.filter (expense) -> expense.description.toLowerCase().indexOf(keywords) != -1
-      else
-        []
-]
+ExpensesCtrl.$inject = ['$scope', '$http']
+@spencer.controller 'ExpensesCtrl', ExpensesCtrl

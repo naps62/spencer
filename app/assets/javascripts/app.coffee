@@ -10,4 +10,7 @@
       templateUrl: 'index.html'
       controller: 'ExpensesCtrl'
     )
+    .otherwise(
+      redirectTo: '/'
+    )
 ]
