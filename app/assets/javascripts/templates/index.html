@@ -1,27 +1,19 @@
-<header class="row">
-<h1 class="text-center col-md-6 col-md-offset-3">All Expenses</h1>
-</header>
 <section class="row">
-  <form>
-    <div class="form-group col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3">
+    <form>
       <label for="keywords" class="sr-only">Keywords</label>
       <input ng-model="query" name="keywords" type="text" autofocus class="form-control" placeholder="Expense name, e.g. Baked Potato">
-    </div>
-  </form>
+    </form>
+  </div>
 </section>
 
-<hr>
-
 <section class="row" ng-if="expenses">
-  <h1 class="text-center h2">Results</h1>
   <ul class="list-unstyled">
     <li ng-repeat="expense in expenses">
       <section class="well col-md-6 col-md-offset-3">
-        <h1 class="h3 col-md-6 text-right" style="margin-top: 0"><a href="#">{{ expense.description }}</a></h1>
-        <div class="col-md-6">
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger">Delete</button>
-        </div>
+        <a href="#/expense/{{ expense.id }}">{{ expense.description }}</a>
+        <button class="btn btn-info">Edit</button>
+        <button class="btn btn-danger">Delete</button>
       </section>
     </li>
   </ul>
