@@ -4,12 +4,7 @@ module API
       respond_to :json
 
       def index
-        expenses = if params[:query]
-                     Expense.with_description_matching(params[:query])
-                   else
-                     Expense.all
-                   end
-        respond_with expenses
+        respond_with Expense.with_description_matching(params[:query])
       end
 
       def show
