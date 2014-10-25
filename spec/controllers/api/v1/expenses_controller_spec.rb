@@ -13,7 +13,7 @@ describe API::V1::ExpensesController, type: :controller do
       xhr :get, :index, format: :json, keywords: keywords
     end
 
-    subject(:results) { JSON.parse(response.body) }
+    subject(:results) { JSON.parse(response.body)["expenses"] }
 
     context 'when the search finds results' do
       let(:keywords) { 'baked' }

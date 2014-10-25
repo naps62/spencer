@@ -9,7 +9,7 @@ module API
                    else
                      []
                    end
-        respond_with expenses.to_json
+        respond_with expenses
       end
 
       def show
