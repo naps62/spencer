@@ -6,11 +6,11 @@
 
 @spencer.config [ '$routeProvider', ($routeProvider) ->
   $routeProvider
-    .when('/'
+    .when('/expenses'
       templateUrl: 'index.html'
       controller: 'ExpensesCtrl'
     )
     .otherwise(
-      redirectTo: '/'
+      redirectTo: '/expenses'
     )
 ]
