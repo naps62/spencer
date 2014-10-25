@@ -18,20 +18,6 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'rspec-collection_matchers'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'capybara-webkit'
-  gem 'teaspoon'
-  gem 'phantomjs'
-end
-
-group :test do
-  gem 'factory_girl_rails', '~> 4.0'
-end
-
 group :production, :staging do
   gem 'rails_12factor'
   gem 'rails_stdout_logging'
