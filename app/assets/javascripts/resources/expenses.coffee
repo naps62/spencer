@@ -17,3 +17,12 @@
   ($scope, Expense, $routeParams) ->
     $scope.expense = Expense.get id: $routeParams.id
 ]
+
+@expenses.controller 'NewExpenseCtrl', ['$scope', 'Expense'
+  ($scope, Expense) ->
+    $scope.expense = new Expense()
+
+    $scope.addExpense = ->
+      $scope.expense.$save ->
+        console.log 'success'
+]

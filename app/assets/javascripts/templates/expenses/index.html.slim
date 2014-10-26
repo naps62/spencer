@@ -1,5 +1,14 @@
 section.row
-  .col-md-5.col-md-offset-3
+  .col-md-6.col-md-offset-3
+    h1 Create new
+    form ng-controller="NewExpenseCtrl" ng-submit="addExpense()"
+      input.form-control ng-model="expense.description" name="description" type="text" placeholder="Expense name"
+      input.btn.btn-success type="submit" value="Save"
+      input.btn.btn-error type="reset" value="Cancel"
+
+section.row
+  .col-md-6.col-md-offset-3
+    h1 Search
     form
       label for="query" class="sr-only" Keywords
       input.form-control ng-model="query" name="query" type="text" autofocus="true" placeholder="Expense name"

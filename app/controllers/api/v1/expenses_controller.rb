@@ -12,9 +12,9 @@ module API
       end
 
       def create
-        @expense = Expense.new(expense_params)
-        if @expense.save
-          respond_with @todo
+        expense = Expense.new(expense_params)
+        if expense.save
+          respond_with expense, location: nil
         end
       end
 
@@ -32,7 +32,7 @@ module API
       private
 
       def expense_params
-        params.require(:expense).permit(:value)
+        params.require(:expense).permit(:value, :description)
       end
     end
   end
