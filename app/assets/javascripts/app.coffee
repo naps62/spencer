@@ -2,6 +2,7 @@
   'templates'
   'ngRoute'
   'ngResource'
+  'expensesService'
 ]
 
 @spencer.config [ '$routeProvider', ($routeProvider) ->
