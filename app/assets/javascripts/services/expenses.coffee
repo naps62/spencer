@@ -2,5 +2,5 @@
 
 @expenses.factory 'Expense', ['$resource',
   ($resource) ->
-    $resource '/api/v1/expenses/:expenseId 
+    $resource '/api/v1/expenses/:id'
 ]
