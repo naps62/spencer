@@ -8,21 +8,20 @@
 @expenses.controller 'ExpensesCtrl', ['$scope', 'Expense'
   ($scope, Expense) ->
     fetch = (query = '') ->
-      $scope.expenses = Expense.query query: query
+      Expense.query query: query, (data) ->
+        $scope.expenses = data
 
-    $scope.$watch 'query', _.debounce(fetch, 200)
+    $scope.$watch 'query', fetch
+
+    $scope.newExpense = new Expense()
+
+    $scope.addExpense = ->
+      $scope.newExpense.$save ->
+        fetch()
+        console.log 'success'
 ]
 
 @expenses.controller 'ExpenseCtrl', ['$scope', 'Expense', '$routeParams',
   ($scope, Expense, $routeParams) ->
     $scope.expense = Expense.get id: $routeParams.id
-]
-
-@expenses.controller 'NewExpenseCtrl', ['$scope', 'Expense'
-  ($scope, Expense) ->
-    $scope.expense = new Expense()
-
-    $scope.addExpense = ->
-      $scope.expense.$save ->
-        console.log 'success'
 ]
