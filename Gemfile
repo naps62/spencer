@@ -4,7 +4,7 @@ ruby '2.1.2'
 
 gem 'rails', '4.0.4'
 
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', tag: 'v0.9.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'pg'
 gem 'pry-rails'
