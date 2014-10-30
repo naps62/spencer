@@ -1,9 +1,11 @@
 @expenses = angular.module 'spencer.expenses', ['ngResource']
 
+
 @expenses.factory 'Expense', ['$resource',
   ($resource) ->
     $resource '/api/v1/expenses/:id'
 ]
+
 
 @expenses.controller 'ExpensesCtrl', ['$scope', 'Expense'
   ($scope, Expense) ->
@@ -20,6 +22,7 @@
         fetch()
         console.log 'success'
 ]
+
 
 @expenses.controller 'ExpenseCtrl', ['$scope', 'Expense', '$routeParams',
   ($scope, Expense, $routeParams) ->
