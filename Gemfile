@@ -6,7 +6,6 @@ gem 'rails', '4.0.4'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'foreman'
 gem 'pg'
 gem 'pry-rails'
 gem 'sass-rails', '~> 4.0.2'
