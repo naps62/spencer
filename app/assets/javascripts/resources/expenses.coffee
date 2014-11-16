@@ -8,17 +8,19 @@
 
 @expenses.controller 'ExpensesCtrl', ['$scope', 'Expense'
   ($scope, Expense) ->
-    fetch = (query = '') ->
+    @fetch = (query = '') ->
       Expense.query query: query, (data) ->
+        debugger
         $scope.expenses = data
 
-    $scope.$watch 'query', fetch
+    $scope.$watch 'query', @fetch
 
     $scope.newExpense = new Expense()
-
-    addExpense: ->
-      @newExpense.$save =>
+    @addExpense = =>
+      $scope.newExpense.description = 'test'
+      $scope.newExpense.$save =>
         @fetch()
+    @
 ]
 
 
