@@ -3,10 +3,12 @@
   "dependencies": {
     "jquery": "latest",
     "angular": "latest",
+    "angular-ui-router": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
     "angular-mocks": "latest",
     "underscore": "latest",
-    "bootstrap-sass-official": "latest"
+    "bootstrap-sass-official": "latest",
+    "font-awesome": "latest"
   }
 }

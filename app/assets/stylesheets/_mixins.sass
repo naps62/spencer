@@ -1,0 +1,12 @@
+@mixin placeholder
+  &::-webkit-input-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+@mixin hover-bg($color)
+  background-color: $color
+  &:hover
+    background-color: darken($color, 10%)

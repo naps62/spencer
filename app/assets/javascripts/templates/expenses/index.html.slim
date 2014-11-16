@@ -1,21 +1,23 @@
-section.row
+section.section.row
   .col-md-6.col-md-offset-3
-    h1 Create new
-    form ng-submit="addExpense()"
-      input.form-control ng-model="newExpense.description" name="description" type="text" placeholder="Expense name"
+    h1.title Create new
+    form.flex.horizontal ng-submit="ctrl.addExpense()"
+      .input-wrapper.flex-1
+        input ng-model="ctrl.newExpense.description" name="description" type="text" placeholder="Expense name"
       input.btn.btn-success type="submit" value="Save"
       input.btn.btn-error type="reset" value="Cancel"
 
-section.row
+section.section.row
   .col-md-6.col-md-offset-3
-    h1 Search
+    h1.title Search
     form
-      label for="query" class="sr-only" Keywords
-      input.form-control ng-model="query" ng-model-options="{ debounce: { 'default': 200 } }" name="query" type="text" autofocus="true" placeholder="Expense name"
+      label.label for="query" class="sr-only" Keywords
+      .input-wrapper
+        input#query ng-model="ctrl.query" ng-model-options="{ debounce: { 'default': 200 } }" name="query" type="text" autofocus="true" placeholder="Expense name"
 
-section.row ng-if="expenses"
+section.row ng-if="ctrl.expenses"
   ul.list-unstyled
-    li ng-repeat="expense in expenses"
+    li ng-repeat="expense in ctrl.expenses"
       section.well.col-md-6.col-md-offset-3
         a href="#/expenses/{{ expense.id }}" {{ expense.description }}
         button.btn.btn-info Edit

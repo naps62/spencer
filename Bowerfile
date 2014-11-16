@@ -2,8 +2,10 @@
 
 asset 'jquery'
 asset 'angular'
+asset 'angular-ui-router'
 asset 'angular-route'
 asset 'angular-resource'
 asset 'angular-mocks'
 asset 'underscore'
 asset 'bootstrap-sass-official'
+asset 'font-awesome'

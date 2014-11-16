@@ -6,7 +6,6 @@
     $resource '/api/v1/expenses/:id'
 ]
 
-
 @expenses.controller 'ExpensesCtrl', ['$scope', 'Expense'
   ($scope, Expense) ->
     fetch = (query = '') ->
@@ -17,10 +16,9 @@
 
     $scope.newExpense = new Expense()
 
-    $scope.addExpense = ->
-      $scope.newExpense.$save ->
-        fetch()
-        console.log 'success'
+    addExpense: ->
+      @newExpense.$save =>
+        @fetch()
 ]
 
 

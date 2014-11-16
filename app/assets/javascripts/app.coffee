@@ -1,21 +1,26 @@
 @spencer = angular.module 'spencer', [
   'templates'
-  'ngRoute'
+  'ui.router'
   'ngResource'
   'spencer.expenses'
 ]
 
-@spencer.config [ '$routeProvider', ($routeProvider) ->
-  $routeProvider
-    .when('/expenses'
+
+@spencer.config [ '$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) ->
+
+  $urlRouterProvider.otherwise '/expenses'
+
+  $stateProvider
+    .state('expenses'
+      url: '/expenses'
       templateUrl: 'expenses/index.html'
       controller: 'ExpensesCtrl'
+      controllerAs: 'ctrl'
     )
-    .when('/expenses/:id'
+    .state('expense'
+      url: '/expenses/:id'
       templateUrl: 'expenses/show.html'
       controller: 'ExpenseCtrl'
-    )
-    .otherwise(
-      redirectTo: '/expenses'
+      controllerAs: 'ctrl'
     )
 ]
