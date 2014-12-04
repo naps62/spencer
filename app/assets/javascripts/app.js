@@ -4,7 +4,8 @@ var spencer = angular.module('spencer', [
   'templates',
   'ui.router',
   'ngResource',
-  'spencer.expenses'
+  'spencer.expenses',
+  'ui.bootstrap'
 ]);
 
 spencer.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {

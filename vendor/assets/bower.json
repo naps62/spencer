@@ -9,6 +9,7 @@
     "angular-mocks": "latest",
     "underscore": "latest",
     "bootstrap-sass-official": "latest",
+    "angular-bootstrap": "latest",
     "font-awesome": "latest"
   }
 }
