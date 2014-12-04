@@ -1,0 +1,42 @@
+//
+// color scheme
+// http://coolors.co/e88d67-7d80da-f5efff-d6f49d-080708
+//
+$white: #F5EFFF
+$black: #080708
+$red: #E03616
+$green: #6BD425
+$blue: #7D80DA
+
+//
+// semantic colors
+//
+$font: $white
+$font-alt: $black
+$bg: $blue
+$bg-alt: $white
+$error: $red
+$success: $green
+
+body
+  color: $font
+  background-color: $bg
+
+.input-wrapper
+  border-color: $white
+  input
+    color: $font
+    +placeholder
+      color: $font
+
+.btn
+  +hover-bg($bg-alt)
+  color: $font-alt
+
+.btn-success
+  +hover-bg($success)
+  color: $font
+
+.btn-error
+  +hover-bg($error)
+  color: $font

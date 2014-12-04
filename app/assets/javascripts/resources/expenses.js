@@ -13,10 +13,8 @@ expenses.controller('ExpensesCtrl', ['$scope', 'Expense', function($scope, Expen
   var ctrl = this;
 
   $scope.fetch = function(query) {
-    // if (typeof query === undefined) { query = ''; }
-    console.log(query);
+    if (typeof query === undefined) { query = ''; }
     Expense.query({query: query}, function(data) {
-      console.log(data);
       $scope.expenses = data;
     });
   };
