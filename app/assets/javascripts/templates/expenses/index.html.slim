@@ -1,9 +1,9 @@
 section.section.row
   .col-md-6.col-md-offset-3
     h1.title Create new
-    form.flex.horizontal ng-submit="ctrl.addExpense()"
+    form.flex.horizontal ng-submit="addExpense()"
       .input-wrapper.flex-1
-        input ng-model="ctrl.newExpense.description" name="description" type="text" placeholder="Expense name"
+        input ng-model="newExpense.description" name="description" type="text" placeholder="Expense name"
       input.btn.btn-success type="submit" value="Save"
       input.btn.btn-error type="reset" value="Cancel"
 
@@ -13,11 +13,11 @@ section.section.row
     form
       label.label for="query" class="sr-only" Keywords
       .input-wrapper
-        input#query ng-model="ctrl.query" ng-model-options="{ debounce: { 'default': 200 } }" name="query" type="text" autofocus="true" placeholder="Expense name"
+        input#query ng-model="query" ng-model-options="{ debounce: { 'default': 200 } }" name="query" type="text" autofocus="true" placeholder="Expense name"
 
-section.row ng-if="ctrl.expenses"
+section.row ng-if="expenses"
   ul.list-unstyled
-    li ng-repeat="expense in ctrl.expenses"
+    li ng-repeat="expense in expenses"
       section.well.col-md-6.col-md-offset-3
         a href="#/expenses/{{ expense.id }}" {{ expense.description }}
         button.btn.btn-info Edit
