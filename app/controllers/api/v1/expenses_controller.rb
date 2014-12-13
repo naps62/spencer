@@ -13,16 +13,16 @@ module API
 
       def create
         expense = Expense.new(expense_params)
-        if expense.save
-          respond_with expense, location: nil
-        end
+        return unless expense.save
+
+        respond_with expense, location: nil
       end
 
       def update
         @expense = Expense.find(params[:id])
-        if @expense.update(expense_params)
-          respond_with @todo
-        end
+        return unless @expenses.update(expense_params)
+
+        respond_with @todo
       end
 
       def destroy
