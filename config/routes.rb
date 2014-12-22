@@ -1,5 +1,7 @@
 Spencer::Application.routes.draw do
-  namespace :v1 do
-    resources :expenses, except: :edit
+  defaults format: :json do
+    constraints format: :json do
+      resources :expenses, except: :edit
+    end
   end
 end
