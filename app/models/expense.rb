@@ -3,7 +3,7 @@ class Expense < ActiveRecord::Base
 
   monetize :value_cents
 
-  scope :with_description_matching, lambda do |query|
+  scope :with_description_matching, (lambda do |query|
     where 'description ILIKE ?', "%#{query}%"
-  end
+  end)
 end

@@ -1,30 +1,28 @@
-class API::V1::ExpensesController < ApplicationController
-  respond_to :json
-
+class ExpensesController < ApplicationController
   def index
-    respond_with Expense.with_description_matching(params[:query])
+    render json: Expense.with_description_matching(params[:query])
   end
 
   def show
-    respond_with Expense.find(params[:id])
+    render json: Expense.find(params[:id])
   end
 
   def create
     expense = Expense.new(expense_params)
     return unless expense.save
 
-    respond_with expense, location: nil
+    render json: expense, location: nil
   end
 
   def update
     @expense = Expense.find(params[:id])
     return unless @expenses.update(expense_params)
 
-    respond_with @todo
+    render json: @todo
   end
 
   def destroy
-    respond_with Expense.destroy(params[:id])
+    render json: Expense.destroy(params[:id])
   end
 
   private
