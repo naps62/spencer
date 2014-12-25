@@ -1,5 +1,5 @@
 class ExpenseSerializer < ActiveModel::Serializer
-  attributes :id, :description, :date, :value
+  attributes :id, :description, :date, :value, :tag_list
 
   def date
     object.date
