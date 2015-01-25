@@ -1,3 +1,5 @@
 class DaySerializer < ActiveModel::Serializer
-  attributes :date, :value
+  attributes :date, :sum, :expense_count
+
+  has_many :expenses
 end
