@@ -2,7 +2,7 @@ class ExpenseSerializer < ActiveModel::Serializer
   attributes :id, :description, :date, :value, :tag_list
 
   def date
-    object.date
+    object.day.date
   end
 
   def value

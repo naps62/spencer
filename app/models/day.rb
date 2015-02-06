@@ -1,18 +1,8 @@
-class Day
-  include ActiveModel::SerializerSupport
+class Day < ActiveRecord::Base
+  has_many :expenses, dependent: :destroy
 
-  def initialize(date)
-    @date = date
-  end
-
-  attr_accessor :date
-
-  def expenses
-    Expense.for_date(date)
-  end
-
-  def expense_count
-    expenses.count
+  def self.for_date(date)
+    where(date: date.to_date.beginning_of_day).first_or_create
   end
 
   def sum

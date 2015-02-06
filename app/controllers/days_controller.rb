@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
   def index
-    render json: Expense.days
+    render json: Day.all
   end
 end

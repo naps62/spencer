@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
   end
 
   def create
+    binding.pry
     expense = Expense.new(expense_params)
     return unless expense.save
 

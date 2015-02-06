@@ -11,18 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005232247) do
+ActiveRecord::Schema.define(version: 20150205230408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "days", force: true do |t|
+    t.date     "date"
+    t.integer  "expenses_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "expenses", force: true do |t|
     t.integer  "value_cents",    default: 0,     null: false
     t.string   "value_currency", default: "EUR", null: false
-    t.datetime "date"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "day_id"
   end
 
   create_table "taggings", force: true do |t|
