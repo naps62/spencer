@@ -1,8 +1,7 @@
 class Expense < ActiveRecord::Base
-  belongs_to :day, counter_cache: true
   acts_as_taggable
 
-  before_save :set_date_and_day
+  before_save :set_date
 
   monetize :value_cents
 
@@ -16,10 +15,7 @@ class Expense < ActiveRecord::Base
 
   private
 
-  def set_date_and_day
-    return if day_id.present?
-
+  def set_date
     self.date ||= Date.today
-    update day: Day.for_date(self.date)
   end
 end
