@@ -1,5 +1,6 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base #API
   include ::ActionController::Serialization
+  # include ::ActionController::MimeResponds
 
   rescue_from Exception do |error|
     render json: { error: error.message }, status: 500

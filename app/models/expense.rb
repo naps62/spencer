@@ -1,9 +1,13 @@
 class Expense < ActiveRecord::Base
+  belongs_to :user
+
   acts_as_taggable
 
   before_save :set_date
 
   monetize :value_cents
+
+  validates :user, presence: true
 
   scope :with_description_matching, (lambda do |query|
     where 'description ILIKE ?', "%#{query}%"

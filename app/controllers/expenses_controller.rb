@@ -1,29 +1,31 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    render json: Expense.with_description_matching(params[:query])
+    binding.pry
+    render json: current_user.expenses.with_description_matching(params[:query])
   end
 
   def show
-    render json: Expense.find(params[:id])
+    render json: current_user.expenses.where(id: params[:id]).first
   end
 
   def create
-    binding.pry
-    expense = Expense.new(expense_params)
+    expense = current_user.expenses.build(expense_params)
     return unless expense.save
 
     render json: expense, location: nil
   end
 
   def update
-    @expense = Expense.find(params[:id])
+    @expense = current_user.expenses.where(id: params[:id]).first
     return unless @expenses.update(expense_params)
 
     render json: @todo
   end
 
   def destroy
-    render json: Expense.destroy(params[:id])
+    render json: current_user.expenses.where(id: params[:id]).first.destroy
   end
 
   private
